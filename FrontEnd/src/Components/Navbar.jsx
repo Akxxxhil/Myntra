@@ -1,6 +1,7 @@
 import { IoPersonOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { IoBagOutline } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 function Navbar() {
     return (
         <div className="flex justify-around border-red-500 border-solid border py-5">
@@ -21,10 +22,12 @@ function Navbar() {
             </div>
 
             <div className="flex gap-4">
-                <div className="flex flex-col items-center">
+                <NavLink to="/profile">
+                <div className="flex flex-col items-center cursor-pointer">
                     <span><IoPersonOutline /></span>
                     Profile
                 </div>
+                </NavLink>
                 <div className="flex flex-col items-center">
                     <span><CiHeart /></span>
                     Wishlist
