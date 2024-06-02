@@ -30,7 +30,7 @@ function Profile() {
   function submitHnadler(e) {
     e.preventDefault();
     signup();
-    toast.success("Signup Success");
+    // toast.success("Signup Success");
   }
   function loginsubmit(e) {
     e.preventDefault();
