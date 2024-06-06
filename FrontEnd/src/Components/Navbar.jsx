@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
     return (
-        <div className="flex justify-between px-5 border-red-500 border-solid border py-5 box-border">
+        <div className="fixed w-screen flex justify-between px-5 border-red-500 border-solid border py-5 box-border">
             <div className="flex flex-col items-center justify-center cursor-pointer">
                 <span><RiMenu2Line /></span>
             </div>
