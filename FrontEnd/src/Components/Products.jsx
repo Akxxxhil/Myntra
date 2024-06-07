@@ -4,8 +4,8 @@ import { useDispatch } from "react-redux";
 import { AddBag } from "../Redux/Slicer/AddtoBag";
 import { Addwishlist } from "../Redux/Slicer/WishlistSlice";
 import Spinner from "./Spinner";
-import NewDrops from "./NewDrops";
-import MostTrending from "./MostTrending";
+import NewDrops from "./NewDrops.jsx";
+import MostTrending from "./MostTrending.jsx";
 
 function Product() {
   const [newdrops, setNewDrops] = useState(false)
