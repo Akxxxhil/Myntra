@@ -4,8 +4,12 @@ import { useDispatch } from "react-redux";
 import { AddBag } from "../Redux/Slicer/AddtoBag";
 import { Addwishlist } from "../Redux/Slicer/WishlistSlice";
 import Spinner from "./Spinner";
+import NewDrops from "./NewDrops";
+import MostTrending from "./MostTrending";
 
 function Product() {
+  const [newdrops, setNewDrops] = useState(false)
+  const [trending, setTrending] = useState(false)
   const [productitem, setProductItem] = useState([]);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
@@ -27,12 +31,27 @@ function Product() {
     dispatch(Addwishlist(item));
   }
 
+  function newdropsHandler() {
+    console.log("new Drops is clicked");
+    setNewDrops(!newdrops)
+  }
+  function trendingHandler() {
+    console.log("trending is clicked");
+    setTrending(!trending)
+  }
+
   return (
     <div>
       <div>
         <div className="flex justify-center mt-3 gap-3">
-          <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">NEW DROPS</button>
-          <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">MOST TRENDING</button>
+          <button onClick={newdropsHandler} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">NEW DROPS</button>
+          <button onClick={trendingHandler} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">MOST TRENDING</button>
+        </div>
+        <div>
+          {newdrops ? (<NewDrops/>):("")}
+        </div>
+        <div>
+          {trending ? (<MostTrending/>):("")}
         </div>
         <div>
           {loading ? (
