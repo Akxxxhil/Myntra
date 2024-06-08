@@ -8,7 +8,9 @@ import Carousel from "../Components/Carousel";
 function Home() {
   return (
     <div>
-      <Navbar />
+      <div>
+        <Navbar />
+      </div>
       <Carousel />
       <Product />
       <Footer />

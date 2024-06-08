@@ -6,10 +6,10 @@ import { Addwishlist } from "../Redux/Slicer/WishlistSlice";
 import Spinner from "./Spinner";
 import NewDrops from "./NewDrops.jsx";
 import MostTrending from "./MostTrending.jsx";
+import Rewards from "./Rewards.jsx";
 
 function Product() {
-  const [newdrops, setNewDrops] = useState(false)
-  const [trending, setTrending] = useState(false)
+  const[toggle,setToggle]=useState(false)
   const [productitem, setProductItem] = useState([]);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
@@ -33,27 +33,22 @@ function Product() {
 
   function newdropsHandler() {
     console.log("new Drops is clicked");
-    setNewDrops(!newdrops)
+    setToggle(false)
   }
   function trendingHandler() {
     console.log("trending is clicked");
-    setTrending(!trending)
+    setToggle(true)
   }
 
   return (
     <div>
       <div>
         <div className="flex justify-center mt-3 gap-3">
-          <button onClick={newdropsHandler} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">NEW DROPS</button>
-          <button onClick={trendingHandler} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">MOST TRENDING</button>
+          <button onClick={newdropsHandler} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-blue-700 dark:border-gray-700">NEW DROPS</button>
+          <button onClick={trendingHandler} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-blue-700 dark:border-gray-700">MOST TRENDING</button>
         </div>
         <div>
-          {newdrops ? (<NewDrops/>):("")}
-        </div>
-        <div>
-          {trending ? (<MostTrending/>):("")}
-        </div>
-        <div>
+          <div>{toggle ? (<MostTrending/>):(<NewDrops/>)}</div>
           {loading ? (
             <Spinner />
           ) : (
@@ -95,6 +90,10 @@ function Product() {
           )}
         </div>
       </div>
+      <div className="fixed bottom-0 right-0 bg-transparent"><Rewards/></div>
+
+
+
     </div>
   );
 }

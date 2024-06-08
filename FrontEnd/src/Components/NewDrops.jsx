@@ -32,7 +32,7 @@ function NewDrops() {
                             <div className="flex justify-center items-center h-full">
                                 <img src={item.image} alt={item.name} className="max-h-40" />
                             </div>
-                            <h4 className="text-center">{item.name}</h4>
+                            <p className="text-center">{item.name}</p>
                         </div>
                     ))}
                 </div>
